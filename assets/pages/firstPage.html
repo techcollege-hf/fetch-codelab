@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Template strings codelab</title>
+    <title>Fetch codelab</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/main.css">
@@ -22,7 +22,7 @@
 <body>
     <header>
         <section class="assignmentTopSection">
-            <h1>Template strings</h1>
+            <h1>Fetch funktionen</h1>
             <nav>
                 <a href="../../index.html">back</a>
             </nav>
@@ -43,32 +43,7 @@
         <header class="easy"></header>
         <article>
             <h2>Opgave 1</h2>
-            <p>
-                Opgaven går ud på at oprette en besked, som inkluderer navnet på en person og antallet af år,
-                personen
-                har
-                arbejdet
-                i en bestemt virksomhed.
-            </p>
-            <h3>Instruktioner</h3>
-            <ol>
-                <li>Opret to konstanter: en for navnet på personen og en for antallet af år, personen har arbejdet i
-                    virksomheden.
-                </li>
-                <li>Brug en template string til at oprette en besked, der inkluderer både navnet på personen og
-                    antallet
-                    af år, personen har arbejdet i virksomheden. Beskeden skal have følgende format: "Hej [navn] du har
-                    nu arbejdet i vores virksomhed i [år] år."</li>
-                <li>Vis beskeden på skærmen ved hjælp af <code>element.innerHTML</code>.</li>
-            </ol>
-            <p>
-                Når du har lavet opgaven, skal resultatet blive vist i elementet med id "message" i din browser.
-                Resultatet skal have følgende
-                format: <br> &lt;h2&gt;Hej Keld&lt;/h2&gt; du har nu arbejdet i vores virksomhed i 3 år."
-            </p>
-            <h3>message her</h3>
-            <div id="message"></div>
-            <br>
+
             <button class="hintbutton">Hint</button>
             <div class="hint">
 
@@ -91,45 +66,7 @@
         <header class="medium"></header>
         <article>
             <h2>Opgave 2</h2>
-            <p>
-                Du skal bygge en liste over produkter fra en fiktiv online butik. Hver produktlinje skal
-                indeholde produktets navn, beskrivelse og pris, og disse oplysninger skal vises ved hjælp af template
-                strings i JavaScript.
-                <br>
-                Applikationen skal oprette elementer i HTML elementet med id "produktListe"
-                Applikationen skal hente produktdata fra et array, der indeholder objekter med
-                produktinformation.
-                <br>
-                Produkterne vises på siden ved hjælp af en template string. Du kan bruge en HTML-template, hvor du
-                indsætter dataene i passende steder ved hjælp af placeholders, som du kan erstatte med produktdata.
-            </p>
-            <pre><code>
-            const myData=[
-            { "navn": "T-shirt",
-            "beskrivelse": "En t-shirt lavet af bomuld",
-            "pris": 99 },
-            { "navn": "Jeans",
-            "beskrivelse": "Blå denim jeans med straight fit",
-            "pris": 299
-            },
-            { "navn": "Hættetrøje",
-            "beskrivelse": "En grå hættetrøje med lynlås",
-            "pris": 199 }
-            ]             
-        </code></pre>
 
-            Din html skal have følgende struktur: <br>
-            <pre><code>
-        &lt;article class="produkt"&gt;
-            &lt;h2&gt;${produkt.navn}&lt;/h2&gt;
-            &lt;p&gt;${produkt.beskrivelse}&lt;/p&gt;
-            &lt;p&gt;Pris: ${produkt.pris} kr.&lt;/p&gt;
-        &lt;/article&gt;
-    </code></pre>
-            <br>
-            <h3>produkt liste her</h3>
-            <div id="produktListe"></div>
-            <br>
         </article>
     </section>
 
@@ -139,31 +76,13 @@
             <h2>Opgave 3</h2>
             <h3>Opgave beskrivelse</h3>
             <p>
-                Du skal oprette en webapplikation ved hjælp JavaScript, der giver brugeren mulighed for
-                at indtaste en liste over navne og deres alder. Applikationen skal derefter sortere listen efter alder
-                og vise den sorteret liste på siden ved hjælp af template strings i JavaScript.
-            </p>
-
-            <h3>Krav:</h3>
-            <p>
-                Applikationen skal have et HTML-formularfelt, hvor brugeren kan indtaste navne og aldre på personer.Når
-                brugeren klikker på en knap, skal applikationen indsamle data fra formularfeltet og gemme dem i en
-                JavaScript-variabel.
-                Applikationen skal sortere listen efter alder ved hjælp JavaScript- array sorteringsfunktion. Den
-                sorteret liste skal vises på siden ved hjælp af en template string i JavaScript. <br>
-                Template stringen skal indeholde både navn og alder for hver person på listen.
+                lave en sprog versionering udfra json fil.
             </p>
             <br>
-            <h3>Formular</h3>
-            <form id="formular">
+            <h3>Historien</h3>
+            <article id="theStory">
 
-                <input type="text" name="navn" id="" placeholder="dit navn">
-                <input type="text" name="alder" id="" placeholder="din alder">
-                <button id="indsend-knap">Indsend</button>
-
-
-            </form>
-            <div id="person-liste"></div>
+            </article>
 
             <br>
             <button class="hintbutton">Hint</button>
@@ -172,51 +91,108 @@
 
                 <h3>Eksempelkode:</h3>
                 <p>
-                    Her er et eksempel på, hvordan du kan hente data fra en form, oprette en sorteringsfunktion i
-                    JavaScript og bruge en
-                    template string til at vise den sorterede liste på siden:
+                    Her er et eksempel på, koden:
                 </p>
                 <pre>
     <code>
-        // array med person data
-        const myPersons = [];
-
-        // find form elementer
-        const myForm = document.getElementById('formular');
-        const submitButton = document.getElementById('indsend-knap');
-        const personList = document.getElementById('person-liste');
-
-        // submit button event listner med arrow function
-        submitButton.addEventListener('click', (event) => {
-        event.preventDefault();
-        const myFormFelter = myForm.querySelectorAll('input');
-
-        /* push resultatet fra formen ind på myPersons.
-        vi ved der er 2 elementer derfor direkte adressering ved hjælp af []
-        */
-        myPersons.push({
-        navn: myFormFelter[0].value,
-        alder: myFormFelter[1].value,
+        const myDataFileUrl = '../../opgavefiler/data/story.json';
+        
+        const myStoryElement = document.getElementById('theStory');
+        let myStorydata = null;
+        
+        
+        
+        
+        fetch(myDataFileUrl)
+        .then((response) => {
+        
+        return response.json();
+        
+        })
+        .then((data) => {
+        myStorydata = data;
+        setUpStory('DK');
+        })
+        .catch((error) => {
+        console.error(error);
         });
         
-        // Sorter listen efter alder og vis den på siden
-        const sorteretMyPersons = sorterEfterAlder(myPersons);
-        showList(sorteretMyPersons);
-        });
-
-        // view code
-        function showList(sorteretMyPersons) {
-        let html = '';
-        sorteretMyPersons.map((person) => {
-        // html template.
-        html += `&lt;li&gt;${person.navn} er ${person.alder} år gammel.&lt;/li&gt;`;
-        });
-        personList.innerHTML = html;
+        
+        
+        function setUpStory(myLanguage) {
+        let myStory = null;
+        
+        switch (myLanguage) {
+        case 'DK':
+        myStory = myStorydata.DK;
+        break;
+        
+        case 'FI':
+        myStory = myStorydata.FI;
+        break;
+        
+        case 'SE':
+        myStory = myStorydata.SE;
+        break;
+        
+        case 'UK':
+        myStory = myStorydata.UK;
+        break;
+        
+        default:
+        myStory = myStorydata.DK;
+        break;
         }
-
-        // Funktion til at sortere listen efter alder
-        function sorterEfterAlder(myPersons) {
-        return myPersons.sort((a, b) => a.alder - b.alder);
+        createStory(myStory);
+        }
+        
+        function createStory(myStory) {
+        myStoryElement.innerHTML = ''
+        createButtons();
+        
+        let myHeadline = document.createElement('h2');
+        myHeadline.innerText = myStory.headline;
+        let myImage = document.createElement('img');
+        myImage.src = '../../opgavefiler/img/felix.jpg';
+        let myParagraf = document.createElement('p');
+        myParagraf.innerText = myStory.text;
+        
+        
+        myStoryElement.appendChild(myHeadline);
+        myStoryElement.appendChild(myImage);
+        myStoryElement.appendChild(myParagraf);
+        
+        }
+        
+        function createButtons() {
+        let myDkbutton = document.createElement('button');
+        myDkbutton.innerText = 'Dansk';
+        myDkbutton.addEventListener('click', (e) => {
+        setUpStory("DK");
+        });
+        
+        let mySebutton = document.createElement('button');
+        mySebutton.innerText = 'Svenska';
+        mySebutton.addEventListener('click', (e) => {
+        setUpStory("SE");
+        });
+        
+        let myFibutton = document.createElement('button');
+        myFibutton.innerText = 'Finsk';
+        myFibutton.addEventListener('click', (e) => {
+        setUpStory("FI");
+        });
+        
+        let myUkbutton = document.createElement('button');
+        myUkbutton.innerText = 'English';
+        myUkbutton.addEventListener('click', (e) => {
+        setUpStory("UK");
+        });
+        
+        myStoryElement.appendChild(myDkbutton);
+        myStoryElement.appendChild(mySebutton);
+        myStoryElement.appendChild(myFibutton);
+        myStoryElement.appendChild(myUkbutton);
         }
     </code>
 </pre>
