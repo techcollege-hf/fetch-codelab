@@ -27,8 +27,7 @@
                 <a href="../../index.html">back</a>
             </nav>
             <br>
-            <p>Her er opgaver med template strings. Opgaverne indeholder også andet kode vi har været igenem, så det kan
-                være en god ide, at finde de gamle code labs frem.</p>
+            <p>Her er opgaver med fetch API'et så du kan hente data og andre resourcer til javascript.</p>
             <br>
 
             <strong>
@@ -38,42 +37,54 @@
 
 
     </header>
+
     </section>
+
+
     <section class="assignmentArea">
         <header class="easy"></header>
         <article>
             <h2>Opgave 1</h2>
+            <p>Du kal hente data fra denne URI "https://jsonplaceholder.typicode.com/users" og vise navn og adresse for alle brugere, i elementet med id="userList" i dette format</p>
+            <pre><code>
+                &lt;h2&gt;${myUser.name}&lt;/h2&gt;
+                &lt;p&gt;Adresse: ${myUser.address.street}  ${myUser.address.suite}&lt;/br&gt;
+                   post nummer: ${myUser.address.zipcode}&lt;/br&gt;
+                   by: ${myUser.address.city}&lt;/p&gt;
+        
+            </code></pre>
+
+        <article id="userList"></article>
 
             <button class="hintbutton">Hint</button>
             <div class="hint">
 
-                <pre><code>
-        const navn = "Alice";
-        const aarIvirksomhed = 3;
-        const besked = `Hej ${navn}
-        du har arbejdet i vores virksomhed i ${aarIvirksomhed} år.`;
-        console.log(besked);
-    </code></pre>
+            <pre><code>
+                function buildUsers(myUserData){
+                    myUserData.map((myUser)=>{
+                    let myUserHTML=`&lt;h2&gt;${myUser.name}&lt;/h2&gt;
+                    &lt;p&gt;Adresse: ${myUser.address.street}  ${myUser.address.suite}&lt;/br&gt;
+                    post nummer: ${myUser.address.zipcode}&lt;/br&gt;
+                    by: ${myUser.address.city}&lt;/p&gt;`;
+                    myUserlistElement.innerHTML+=myUserHTML;
+                    });
+                }
+
+</code></pre>
             </div>
+
+
         </article>
 
 
 
     </section>
 
-
-    <section class="assignmentArea">
-        <header class="medium"></header>
-        <article>
-            <h2>Opgave 2</h2>
-
-        </article>
-    </section>
 
     <section class="assignmentArea">
         <header class="hard"></header>
         <article>
-            <h2>Opgave 3</h2>
+            <h2>Opgave 2</h2>
             <h3>Opgave beskrivelse</h3>
             <p>
                 lave en sprog versionering udfra json fil.
@@ -197,6 +208,17 @@
     </code>
 </pre>
             </div>
+        </article>
+    </section>
+
+    <section class="assignmentArea">
+        <header class="medium"></header>
+        <article>
+            <h2>Opgave 3</h2>
+
+            <h2>user comments</h2>
+            <div id="userSelect"></div>
+            <div id="userPosts"></div>
         </article>
     </section>
 

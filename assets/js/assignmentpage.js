@@ -1,7 +1,7 @@
 hintScan();
 
 function hintScan() {
-    console.log('hint scan');
+    
     const myHintButtons = Array.from(document.getElementsByClassName('hintbutton'));
 
     myHintButtons.map(element => {
