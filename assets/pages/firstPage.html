@@ -219,6 +219,83 @@
             <h2>user comments</h2>
             <div id="userSelect"></div>
             <div id="userPosts"></div>
+
+<br>
+            <button class="hintbutton">Hint</button>
+            <div class="hint">
+
+            <pre><code>
+            const myListElement = document.getElementById("userSelect");
+            const myPostElement = document.getElementById("userPosts");
+
+                //entry point
+                getUsers("https://jsonplaceholder.typicode.com/users");
+
+                // get user list from api
+
+                function getUsers(myUserURI) {
+                fetch(myUserURI)
+                    .then((response) => {
+                    return response.json();
+                    })
+                    .then((data) => {
+                    setupUserSelection(data);
+                    //getPosts(myPostURI);
+                    })
+                    .catch((error) => {
+                    console.error(error);
+                    });
+                }
+
+                // show users in select
+
+                function setupUserSelection(myUserList) {
+                let mySelectHTML =
+                    '&lt;select name="users" id="userSelect" placeholder="vælg bruger"&gt;';
+
+                myUserList.map((myUser) => {
+                    mySelectHTML += `&lt;option value="${myUser.id}"&gt;${myUser.name}&lt;/option&gt;`;
+                });
+
+                mySelectHTML += "  &lt;/select&gt;";
+                myListElement.innerHTML = mySelectHTML;
+                myListElement.addEventListener("change", (e) => {
+                    getPosts(e.target.value);
+                });
+
+                // show posts for user 1
+                getPosts(1);
+                }
+
+                // get user posts from api with user id
+                function getPosts(myId) {
+                let myPostURI = `https://jsonplaceholder.typicode.com/posts?userId=${myId}`;
+                fetch(myPostURI)
+                    .then((response) => {
+                    return response.json();
+                    })
+                    .then((data) => {
+                    showPosts(data);
+                    })
+                    .catch((error) => {
+                    console.error(error);
+                    });
+                }
+
+                //show user posts
+
+                function showPosts(myPosts) {
+                let myPostHTML = "";
+                myPosts.map((myPost) => {
+                    myPostHTML += `&lt;h3&gt;${myPost.title}"&lt;/h3&gt;&lt;p&gt;${myPost.body}&lt;/p&gt;`;
+                });
+
+                myPostElement.innerHTML = myPostHTML;
+                }
+            
+
+            </code></pre>
+            </div>
         </article>
     </section>
 
